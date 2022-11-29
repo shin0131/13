@@ -7,24 +7,37 @@
 #define MAX_NAME       20
 
 
-struct student {
-	int 	ID;
-	char 	name[MAX_NAME];
-	double 	grade; 
+struct point {
+	int 	x;
+	int 	y;
 };
 
 
 int main(int argc, char *argv[]) {
 	
-	struct student student1 = {2112345, "ShinyoungCho", 4.3};   //instance
+	struct point p1, p2;
+	int xdiff, ydiff;
+	double dist;
 	
-	student1.ID = 2112392;
-	strcpy(student1.name, "ChoShinyoung");
-	student1.grade = 4.0;
+	printf("input p1 coordinate (x y) : ");
+	scanf("%d %d", &p1.x, &p1.y);
 	
-	printf("ID : %i\n", student1.ID);
-	printf("name : %s\n", student1.name);
-	printf("grade : %lf\n", student1.grade);
+	printf("input p2 coordinate (x y) : ");
+	scanf("%d %d", &p2.x, &p2.y);
+	
+	//calculate xdiff
+	xdiff = p2.x - p1.x;
+	
+	//calculate ydiff
+	ydiff = p2.y - p1.y;
+
+	//sqrt(xdiff^2 + ydiff^2) -> dist
+	dist = sqrt(xdiff*xdiff + ydiff*ydiff);
+	
+	
+	printf("distance : %lf", dist);
+	
 	
 	return 0;
 }
+
